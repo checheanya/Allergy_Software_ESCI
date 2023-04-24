@@ -24,6 +24,9 @@ You can find Software Requirements Specification file for our app in the *dev_do
 🚀  To **contribute** to our project, please contact us. 
 You can also fork this repo and work remotely under your own version. 
 
+Join Trello for developers to see where we are now and see which tasks you can join:
+[Our trello board](https://trello.com/invite/breatheeasysoftware/ATTIb7b926fe43588cce678784fc0729d18cEE1334C9) 
+
 To clone this repo use this command:
 
 ```console
