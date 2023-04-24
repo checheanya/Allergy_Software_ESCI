@@ -17,9 +17,9 @@ You can find Software Requirements Specification file for our app in the *dev_do
 
 ## 💬 Contact information
 
-* [Anna Chechenina](mailto:anna.chechenina@alum.esci.upf.edu?subject=[GitHub]%20Source%20Han%20Sans)
-* [Yvette Dimitrova](mailto:yvette.dimitrova@alum.esci.upf.edu?subject=[GitHub]%20Source%20Han%20Sans)
-* [Stafano Galiano](mailto:stefano.galiano@alum.esci.upf.edu?subject=[GitHub]%20Source%20Han%20Sans)
+* Anna Chechenina [Anna Chechenina](mailto:anna.chechenina@alum.esci.upf.edu?subject=[GitHub]%20Source%20Han%20Sans)
+* Yvette Dimitrova [Yvette Dimitrova](mailto:yvette.dimitrova@alum.esci.upf.edu?subject=[GitHub]%20Source%20Han%20Sans)
+* Stafano Galiano [Stafano Galiano](mailto:stefano.galiano@alum.esci.upf.edu?subject=[GitHub]%20Source%20Han%20Sans)
 
 🚀  To **contribute** to our project, please contact us. 
 You can also fork this repo and work remotely under your own version. 
