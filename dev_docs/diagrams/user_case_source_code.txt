@@ -1,0 +1,34 @@
+@startuml
+actor User #orange
+
+box System
+participant "User receives an alert" as us1 #lightblue
+participant "User views an article" as us2 #lightblue
+participant "User views the map" as us3 #lightblue
+participant "User uploads an alert" as us4 #lightblue
+participant "User fills the quiz" as us5 #lightblue
+participant "User registers" as us6 #lightblue
+
+participant "System requests data\nfrom the station" as ms1 #lightblue
+
+participant "System receives a\nwarning from health\ntracking service" as as1 #lightblue
+
+participant "Expert uploads an article" as e1 #lightblue
+
+end box
+
+actor "Monitoring stations" #orange
+actor Expert #orange
+actor "Accessories and\nhealth-tracking apps" as Ac #orange 
+
+User <- us1
+User <- us2
+User <- us3
+User -> us4
+User -> us5
+User -> us6
+
+Ac -> as1
+Expert -> e1
+"Monitoring stations" -> ms1
+@enduml
