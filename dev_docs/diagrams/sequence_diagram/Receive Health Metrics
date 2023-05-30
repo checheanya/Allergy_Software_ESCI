@@ -1,0 +1,14 @@
+@startuml
+
+actor User
+participant "Allergy App" as App
+database "Health Data" as Data
+
+User -> App: Open app
+App -> App: Show Home Screen
+User -> App: Select "Receive Health Metrics"
+App -> Data: Retrieve Health Metrics
+Data --> App: Health Metrics
+App --> User: Display Health Metrics
+
+@enduml
