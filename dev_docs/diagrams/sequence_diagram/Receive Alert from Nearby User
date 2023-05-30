@@ -1,0 +1,15 @@
+@startuml
+
+actor User
+participant "Allergy App" as App
+participant "Nearby User" as NearbyUser
+
+User -> App: Open app
+App -> App: Show Home Screen
+User -> App: Select "Receive Alert from Nearby User"
+App -> App: Retrieve Nearby User Alert
+App -> NearbyUser: Request Nearby User Alert
+NearbyUser -> App: Send Nearby User Alert
+App --> User: Display Nearby User Alert
+
+@enduml
