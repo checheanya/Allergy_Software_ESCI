@@ -1,0 +1,14 @@
+@startuml
+
+actor User
+participant "Allergy App" as App
+database "Allergy Data" as Data
+
+User -> App: Open app
+App -> App: Show Home Screen
+User -> App: Select "Receive Allergen Data"
+App -> Data: Retrieve Allergen Data
+Data --> App: Allergen Data
+App --> User: Display Allergen Data
+
+@enduml
