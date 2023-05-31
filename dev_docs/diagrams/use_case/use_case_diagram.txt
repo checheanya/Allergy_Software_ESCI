@@ -1,0 +1,37 @@
+@startuml
+left to right direction
+actor User
+actor External_providers
+actor Experts
+rectangle "App" {
+  rectangle "Static Viewer" as staticviewer
+  rectangle "Interactive (Submitting)" as interactive
+  rectangle "Receiver Notifications" as notifications
+
+  User <-- staticviewer : View the Profile Page
+  User <-- staticviewer: View the Map
+  User <-- staticviewer: View the Articles section
+  User <-- staticviewer: View the Main Page
+
+  Experts --> interactive: Submits an article
+
+  User --> interactive : Registration
+  User --> interactive : Log in using email
+  User --> interactive : Log in using Google or Facebook account
+  User --> interactive : Restore password
+  User --> interactive : Fill Welcome Quiz
+  User --> interactive : Fill Daily How Are You Quiz
+  User --> interactive : Search articles
+  User --> interactive : Accept permissions
+  User --> interactive : Pay for non-Ad version
+
+  External_providers <--  interactive: Request data from User Alerts
+  External_providers <-- interactive: Request health metrics
+  External_providers <-- interactive: Request data from Monitoring Stations
+
+  User <-- notifications : Receive a User Alert
+  User <-- notifications : Receive a Station Alert
+  User <-- notifications : Receive a Quiz notification based on metrics
+  User <-- notifications : Receive a daily Quiz notification
+}
+@enduml
