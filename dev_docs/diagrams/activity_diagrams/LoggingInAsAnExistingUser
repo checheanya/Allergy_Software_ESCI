@@ -8,6 +8,6 @@ if (Credentials are valid) then (yes)
   :App logs in the user;
   :App shows home screen;
 else (no)
-  :App displays error message;
+  :App displays error message: "Incorrect user data!";
   end
 @enduml
