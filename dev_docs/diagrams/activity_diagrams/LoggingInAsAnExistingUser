@@ -1,0 +1,13 @@
+@startuml
+start
+:User opens app;
+:App shows login screen;
+:User enters login credentials;
+:App validates login credentials;
+if (Credentials are valid) then (yes)
+  :App logs in the user;
+  :App shows home screen;
+else (no)
+  :App displays error message;
+  end
+@enduml
