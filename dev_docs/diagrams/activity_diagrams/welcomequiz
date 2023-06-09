@@ -1,6 +1,7 @@
 @startuml
 start
 :User opens app;
+:User logs in for the first time;
 :App shows welcome quiz;
 while (There are quiz questions) is (yes)
   :User answers a quiz question;
