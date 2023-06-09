@@ -1,0 +1,22 @@
+@startuml
+start
+:User opens app;
+:App shows signup screen;
+:User selects "Sign Up with Facebook";
+:App performs Google or Facebook login;
+if (Facebook profile exists) then (yes)
+  :App displays form requiring Facebook password;
+  :User fills out the form;
+  :App validates the password;
+  if (Password is valid) then (yes)
+    :App creates a new user account;
+    :App logs in the user;
+    :App shows home screen;
+  else (no)
+    :App displays error message: "Your Facebook passowrd is incorrect!";
+    end
+endif
+else (no)
+  :App displays error message: "Facebook profile does not exist!";
+  end
+@enduml
