@@ -14,8 +14,9 @@ if (Name is valid) then (yes)
     :App shows home screen;
   else (no)
     :App displays error message "Invalid Email";
-  endif
+  end
+endif
 else (no)
   :App displays error message "Invalid Name";
-endif
+end
 @enduml
