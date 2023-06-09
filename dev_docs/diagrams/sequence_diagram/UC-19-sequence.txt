@@ -1,0 +1,14 @@
+@startuml
+
+actor User
+participant "Allergy App" as App
+participant "Database" as Database
+
+User -> App: Open app
+App -> App: Show Home Screen
+User -> App: Select "Receive Alert from Database"
+App -> Database: Retrieve Forecast Alert
+Database --> App: Forecast Alert
+App --> User: Display Forecast Alert
+
+@enduml
