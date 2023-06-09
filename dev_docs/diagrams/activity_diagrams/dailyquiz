@@ -1,0 +1,16 @@
+@startuml
+start
+:User opens app;
+:App shows "How Are You" quiz;
+while (There are quiz questions) is (yes)
+  :User answers a quiz question;
+  :App stores the answer;
+  :App retrieves the next quiz question;
+endwhile (no)
+:App evaluates the symptoms of the patient based on the quiz answers;
+if (Quiz questions answered) then (yes)
+  :App saves the quiz results;
+else (no)
+  :App displays failure message: "You have some unanswered questions!";
+  end
+@enduml
