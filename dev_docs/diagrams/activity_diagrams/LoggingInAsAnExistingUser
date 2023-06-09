@@ -2,12 +2,20 @@
 start
 :User opens app;
 :App shows login screen;
-:User enters login credentials;
-:App validates login credentials;
-if (Credentials are valid) then (yes)
-  :App logs in the user;
-  :App shows home screen;
+:User selects "Sign Up with Email";
+:App displays email sign-up form;
+:User fills out the form;
+:App validates the name;
+if (Name is valid) then (yes)
+  :App validates the email;
+  if (Email is valid) then (yes)
+    :App creates a new user account;
+    :App logs in the user;
+    :App shows home screen;
+  else (no)
+    :App displays error message "Invalid Email";
+  endif
 else (no)
-  :App displays error message: "Incorrect user data!";
-  end
+  :App displays error message "Invalid Name";
+endif
 @enduml
