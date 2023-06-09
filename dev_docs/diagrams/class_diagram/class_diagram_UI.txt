@@ -1,0 +1,95 @@
+@startuml
+class AllergyApp {
+  - user: User
+  - date_time: String
+  + open_app(): void
+  + close_app(): void
+  + send_otification(): void
+  + request_permission(): void
+}
+
+class Map {
+  - allergens: AllergyData 
+  - user_alerts: UserAlertsData 
+  + request_allergen_data(): void
+}
+
+class AllergyData {
+  - trackingStations: List<TrackingStation>
+  - allergens: List<Allergens>
+  - date_time: String
+  + retrieve_stations(): List<TrackingStation>
+  + retrieve_allergens(): List<Allergens>
+}
+
+class Articles {
+  - article: String
+  - picture: String-url
+  - keywords: List<Keywords>
+  - date_time: String
+  + retrieve_article(): Article
+  + review_article(): void
+}
+
+
+class UserAlertsData {
+  - user: User
+  - allergens: List<Allergens>
+  - date_time: String
+  + retrieve_user_alerts(): List<Allergens>
+}
+
+class TrackingStation {
+  - name: String
+  - location: String
+}
+
+class Allergens {
+  - type: String
+  - intensity: Int
+}
+
+class Quiz {
+  - questions: List<Question>
+  - answers: List<Answer>
+  + start_quiz(): void
+  + evaluate_answers(): boolean
+}
+
+class Question {
+  - text: String
+  - choices: List<String>
+  - answer: String
+}
+
+class Location {
+  - latitude: double
+  - longitude: double
+}
+
+class User {
+  - email: String
+  - UserID: Int
+}
+
+class HealthData {
+  - data: JSON
+  + request_data(): void
+}
+
+AllergyApp "1" -- "1" Map
+Map "1" -- "1" AllergyData 
+Map "1" -- "1" UserAlertsData
+UserAlertsData "1" -- "*" Allergens
+UserAlertsData "1" -- "*" Location
+UserAlertsData "1" -- "*" User
+AllergyData "1" -- "*" Location
+AllergyData "1" -- "*" TrackingStation
+AllergyData "1" -- "*" Allergens
+AllergyApp "1" -- "*" Quiz
+AllergyApp "1" -- "*" Articles
+AllergyApp "1" -- "N" HealthData
+Articles "1" -- "1" User
+Quiz "1" -- "*" Question
+AllergyApp "1" -- "*" Location
+@enduml
