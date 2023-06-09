@@ -1,0 +1,16 @@
+@startuml
+start
+:User opens app;
+:App shows welcome quiz;
+while (There are quiz questions) is (yes)
+  :User answers a quiz question;
+  :App stores the answer;
+  :App retrieves the next quiz question;
+endwhile (no)
+:App cheks if all the questions are answered;
+if (All questions answered) then (yes)
+  :App saves the quiz results;
+else (no)
+  :App displays failure message: "Not all questions have been answered!";
+  end
+@enduml
