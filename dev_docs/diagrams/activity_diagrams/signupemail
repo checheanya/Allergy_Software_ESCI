@@ -2,7 +2,7 @@
 
 start
 :User opens app;
-:App shows login screen;
+:App shows signup screen;
 :User selects "Sign Up with Email";
 :App displays email sign-up form;
 :User fills out the form;
@@ -12,7 +12,7 @@ if (Form is valid) then (yes)
   :App logs in the user;
   :App shows home screen;
 else (no)
-  :App displays error message;
+  :App displays error message: "Invalid form!";
   end
 
 @enduml
