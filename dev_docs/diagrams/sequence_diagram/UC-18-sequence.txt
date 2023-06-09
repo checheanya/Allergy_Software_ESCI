@@ -1,0 +1,21 @@
+@startuml
+
+actor Expert
+participant "Article Submission System" as System
+database "Submitted Articles" as Data
+participant "Editor" as Editor
+
+Expert -> System: Open Article Submission Form
+System -> System: Display Form
+Expert -> System: Submit Article
+System -> Data: Store Submitted Article
+System -> Editor: Notify New Submission
+Editor -> System: Request Article for Editing
+System -> Data: Retrieve Submitted Article
+Data --> Editor: Submitted Article
+Editor -> Editor: Edit Article
+Editor -> System: Submit Edited Article
+System -> Data: Store Edited Article
+System --> Expert: Notify Article Submitted
+
+@enduml
