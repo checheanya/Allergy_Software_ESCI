@@ -1,15 +1,13 @@
 @startuml
-
 actor User
 participant "Allergy App" as App
-participant "Nearby User" as NearbyUser
+participant "User alert data" as da
 
 User -> App: Open app
 App -> App: Show Home Screen
-User -> App: Select "Receive Alert from Nearby User"
+User -> App: Select "Receive Alert from Database"
 App -> App: Retrieve Nearby User Alert
-App -> NearbyUser: Request Nearby User Alert
-NearbyUser -> App: Send Nearby User Alert
+App -> da: Request Nearby User Alert
+da -> App: Send Nearby User Alert
 App --> User: Display Nearby User Alert
-
 @enduml
