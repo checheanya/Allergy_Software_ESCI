@@ -1,0 +1,22 @@
+@startuml
+
+actor User
+participant "Alert System" as System
+database "User Profile" as Profile
+participant "Other User" as OtherUser
+
+User -> System: Open User Profile
+System -> Profile: Retrieve User Profile
+User -> System: Set Allergens in Profile
+User -> System: Enable Alert Notifications
+System --> User: Confirmation
+
+User -> System: Receive Alert
+System -> OtherUser: Submit Alert
+System -> Profile: Retrieve User Profile
+System --> OtherUser: Check Allergens
+OtherUser -> System: Submit Alert with Allergens
+System -> System: Filter Alert by Allergens
+System --> User: Send Alert
+
+@enduml
