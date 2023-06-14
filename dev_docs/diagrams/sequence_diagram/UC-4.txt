@@ -1,0 +1,22 @@
+@startuml
+
+actor User
+participant "Allergy Tracking App" as App
+database "User Profile" as Profile
+
+User -> App: Open App
+App -> App: Authenticate User
+User -> App: Receive Daily Notification
+alt Notification Enabled
+    App -> App: Display Daily Quiz Notification
+    User -> App: Open Quiz
+else Notification Disabled
+    App -> App: No Notification Displayed
+end
+User -> App: Open Settings-Profile
+App -> Profile: Retrieve User Profile
+User -> App: Disable Notification
+App -> Profile: Update Notification Setting
+App --> User: Confirmation
+
+@enduml
