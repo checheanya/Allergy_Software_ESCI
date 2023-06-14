@@ -1,0 +1,18 @@
+@startuml
+
+actor User
+participant "Allergy Tracking App" as App
+control "User Interface" as UI
+participant "Authentication Service" as AuthService
+database "User Database" as UserDB
+
+User -> App: Open App
+App -> UI: Display Login/Register Options
+User -> UI: Select Login with Facebook Option
+UI -> AuthService: Authenticate with Facebook
+AuthService --> UI: Facebook Authentication Result
+UI --> App: Facebook Authentication Result
+App -> UI: Handle Facebook Authentication Result
+UI --> User: Show Login Success Message or Error Message
+
+@enduml
