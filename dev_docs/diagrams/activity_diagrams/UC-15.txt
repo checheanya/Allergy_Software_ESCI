@@ -1,0 +1,21 @@
+@startuml
+start
+:User logs into the app;
+:User navigates to the Articles section;
+:User selects the Sort option;
+:App displays sorting options;
+:User selects "Sort by Date";
+:App sorts the articles by date;
+:App displays the sorted articles;
+:User selects the Search option;
+:App displays the search bar;
+:User enters the article title to search;
+:App filters the articles based on the title;
+:App displays the filtered articles;
+:User selects the Select by Keywords option;
+:App displays the keyword selection screen;
+:User selects the desired keywords;
+:App filters the articles based on the selected keywords;
+:App displays the filtered articles;
+stop
+@enduml
