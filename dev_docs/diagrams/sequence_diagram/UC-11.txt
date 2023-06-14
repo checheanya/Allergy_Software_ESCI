@@ -1,0 +1,22 @@
+@startuml
+
+actor User
+participant "Allergy Tracking App" as App
+control "User Interface" as UI
+participant "Authentication Service" as AuthService
+database "User Database" as UserDB
+
+User -> App: Open App
+App -> UI: Display Login/Register Options
+User -> UI: Select Forgot Password Option
+UI -> UI: Display Forgot Password Form
+User -> UI: Enter Email
+UI -> AuthService: Verify Email
+AuthService --> UI: Email Validation Result
+UI --> App: Email Validation Result
+App -> UI: Handle Email Validation Result
+UI -> AuthService: Send Password Reset Email
+AuthService --> UI: Email Sent
+UI --> User: Show Email Sent Confirmation Message
+
+@enduml
