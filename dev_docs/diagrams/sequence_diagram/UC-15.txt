@@ -1,0 +1,66 @@
+@startuml
+participant User
+participant AllergyApp
+participant ArticleManager
+participant Database
+
+User->AllergyApp: Log in
+activate AllergyApp
+
+AllergyApp->AllergyApp: Navigate to Articles section
+
+User->AllergyApp: Select Sort option
+
+AllergyApp->ArticleManager: Request sorting options
+activate ArticleManager
+
+ArticleManager->ArticleManager: Retrieve sorting options
+
+ArticleManager-->AllergyApp: Sorting options
+
+User->AllergyApp: Select "Sort by Date"
+
+AllergyApp->ArticleManager: Perform sorting by date
+deactivate ArticleManager
+
+AllergyApp->Database: Retrieve articles
+activate Database
+
+Database-->AllergyApp: Article data
+
+AllergyApp-->User: Display sorted articles
+
+User->AllergyApp: Select Search option
+
+AllergyApp-->User: Display search bar
+
+User->AllergyApp: Enter article title to search
+
+AllergyApp->ArticleManager: Perform search by title
+activate ArticleManager
+
+ArticleManager->ArticleManager: Filter articles by title
+
+ArticleManager-->AllergyApp: Filtered articles
+
+AllergyApp-->User: Display filtered articles
+
+User->AllergyApp: Select Select by Keywords option
+
+AllergyApp->ArticleManager: Request keyword selection screen
+activate ArticleManager
+
+ArticleManager->ArticleManager: Retrieve available keywords
+
+ArticleManager-->AllergyApp: Keyword selection screen
+
+User->AllergyApp: Select desired keywords
+
+AllergyApp->ArticleManager: Perform keyword filtering
+deactivate ArticleManager
+
+AllergyApp-->User: Display filtered articles
+
+deactivate Database
+deactivate AllergyApp
+@enduml
