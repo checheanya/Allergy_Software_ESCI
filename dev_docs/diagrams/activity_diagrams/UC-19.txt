@@ -1,0 +1,20 @@
+@startuml
+
+|User|
+start
+:Open Map;
+|System|
+:Retrieve Alerts for Today;
+:Retrieve User Profile;
+:Retrieve Monitoring Stations;
+:System;
+:Filter Alerts by User Profile;
+:Check Allergen Threshold;
+:System;
+:Send Notification to User;
+|User|
+:View Map;
+|User|
+stop
+
+@enduml
