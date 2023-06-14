@@ -1,0 +1,20 @@
+@startuml
+
+actor User
+participant "Allergy Tracking App" as App
+control "User Interface" as UI
+participant "Authentication Service" as AuthService
+database "User Database" as UserDB
+
+User -> App: Open App
+App -> UI: Display Login/Register Options
+User -> UI: Select Login Option
+UI -> UI: Display Login Form
+User -> UI: Enter Email and Password
+UI -> AuthService: Verify Email and Password
+AuthService --> UI: Validation Result
+UI --> App: Validation Result
+App -> UI: Handle Validation Result
+UI --> User: Show Login Success Message or Error Message
+
+@enduml
