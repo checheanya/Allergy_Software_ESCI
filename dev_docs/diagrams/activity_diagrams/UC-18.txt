@@ -1,0 +1,31 @@
+@startuml
+
+|Expert|
+start
+:Open Article Submission Form;
+|System|
+:Display Form;
+|Expert|
+:Submit Article;
+|System|
+:Store Submitted Article;
+:System;
+:Notify New Submission;
+|Editor|
+:Request Article for Editing;
+|System|
+:Retrieve Submitted Article;
+|Data|Editor;
+:Submitted Article;
+|Editor|
+:Edit Article;
+|Editor|
+:Submit Edited Article;
+|System|
+:Store Edited Article;
+:System;
+:Notify Article Submitted;
+|Expert|
+stop
+
+@enduml
