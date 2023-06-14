@@ -1,0 +1,18 @@
+@startuml
+
+|User|
+start
+:Open Map;
+|System|
+:Retrieve New Alerts for Today;
+:Retrieve User Profile;
+:Retrieve User Location;
+:Retrieve Allergen Alerts within 20km;
+:System;
+:Send Notification to User;
+|User|
+:View Map;
+|User|
+stop
+
+@enduml
