@@ -8,11 +8,31 @@ class AllergyApp {
   + request_permission(): void
 }
 
+class User {
+  - email: String
+  - password: String
+  - login: String
+  - UserID: Int
+  - firstName: String
+  - lastName: String
+  - set_of_allergens: List<Allergens>
+  - isLoggedIn: Boolean
+  + logIn(): void
+  + logOut(): void
+}
+
 class Map {
   - allergens: AllergyData 
   - user_alerts: UserAlertsData 
   + request_allergen_data(): void
 }
+
+class MapAPI{
+  - allergens: AllergyData 
+  - user_alerts: UserAlertsData 
+  + request_allergen_data(): void
+}
+
 
 class AllergyData {
   - trackingStations: List<TrackingStation>
@@ -67,17 +87,24 @@ class Location {
   - longitude: double
 }
 
-class User {
-  - email: String
-  - UserID: Int
-}
 
 class HealthData {
   - data: JSON
-  + request_data(): void
+  - api: API
+  + retrieve_data(): JSON
+  + submit_data(data: JSON): void
 }
 
-AllergyApp "1" -- "1" Map
+class HealthAPI {
+  + callAPI(endpoint: String,
+parameters: Map<String, String>): JSON
+}
+
+AllergyApp "1" -- "1" HealthAPI
+HealthAPI "1" -- "N" HealthData
+AllergyApp "1" -- "1" MapAPI
+MapAPI "1" -- "*" Map
+User "1" -- "1" AllergyApp
 Map "1" -- "1" AllergyData 
 Map "1" -- "1" UserAlertsData
 UserAlertsData "1" -- "*" Allergens
@@ -88,7 +115,6 @@ AllergyData "1" -- "*" TrackingStation
 AllergyData "1" -- "*" Allergens
 AllergyApp "1" -- "*" Quiz
 AllergyApp "1" -- "*" Articles
-AllergyApp "1" -- "N" HealthData
 Articles "1" -- "1" User
 Quiz "1" -- "*" Question
 AllergyApp "1" -- "*" Location
