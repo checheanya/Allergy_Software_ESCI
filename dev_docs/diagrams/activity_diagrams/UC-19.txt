@@ -1,0 +1,20 @@
+@startuml
+start
+:User opens the app;
+:App loads user's profile data;
+:App navigates to the Map page;
+:App requests monitoring station data;
+if (User has allergies?) then (yes)
+  :App retrieves user's allergy data;
+  :App queries the database for personalized monitoring station data based on allergies;
+  if (Personalized data available?) then (yes)
+    :App displays personalized monitoring station data on the Map page;
+  else (no)
+    :App displays default monitoring station data on the Map page;
+  endif
+else (no)
+  :App queries the database for default monitoring station data;
+  :App displays default monitoring station data on the Map page;
+endif
+stop
+@enduml
