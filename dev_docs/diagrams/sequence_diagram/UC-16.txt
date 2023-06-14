@@ -1,0 +1,30 @@
+@startuml
+actor User
+participant App
+participant PermissionManager
+participant UserSmartphone
+
+User->App: Install the App
+activate App
+
+App->App: Initialize permissions request
+App->PermissionManager: Request location permission
+activate PermissionManager
+
+PermissionManager->UserSmartphone: Send location permission request
+UserSmartphone-->PermissionManager: User grants location permission
+
+App->PermissionManager: Request notification permission
+PermissionManager->UserSmartphone: Send notification permission request
+UserSmartphone-->PermissionManager: User grants notification permission
+
+App->PermissionManager: Request health metrics permission
+PermissionManager->UserSmartphone: Send health metrics permission request
+UserSmartphone-->PermissionManager: User grants health metrics permission
+
+deactivate PermissionManager
+App->App: Complete permissions request
+
+App-->User: App installation and permission setup completed
+deactivate App
+@enduml
