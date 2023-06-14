@@ -1,0 +1,23 @@
+@startuml
+
+actor User
+participant "Allergy Tracking App" as App
+control "User Interface" as UI
+database "Weather Conditions" as WeatherDB
+database "Allergens Status" as AllergensDB
+database "Nearby Stations" as StationsDB
+
+User -> App: Open App
+App -> UI: Authenticate User
+UI -> UI: Display Main Page
+App -> StationsDB: Retrieve Nearby Stations
+StationsDB --> App: Nearby Stations
+App -> WeatherDB: Retrieve Weather Conditions
+WeatherDB --> App: Weather Conditions
+App -> AllergensDB: Retrieve Allergens Status
+AllergensDB --> App: Allergens Status
+App -> UI: Display Weather Conditions
+App -> UI: Display Allergens Status
+UI --> User: Show Main Page
+
+@enduml
