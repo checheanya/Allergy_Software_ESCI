@@ -1,14 +1,16 @@
 @startuml
 
 actor User
-participant "Allergy App" as App
-participant "Database" as Database
+participant "Alert System" as System
+database "Alert Database" as Database
 
-User -> App: Open app
-App -> App: Show Home Screen
-User -> App: Select "Receive Alert from Database"
-App -> Database: Retrieve Forecast Alert
-Database --> App: Forecast Alert
-App --> User: Display Forecast Alert
+User -> System: Open Map
+System -> Database: Retrieve Alerts for Today
+System -> Database: Retrieve User Profile
+System -> Database: Retrieve Monitoring Stations
+System -> System: Filter Alerts by User Profile
+System -> System: Check Allergen Threshold
+System --> User: Send Notification
+User -> System: View Map
 
 @enduml
