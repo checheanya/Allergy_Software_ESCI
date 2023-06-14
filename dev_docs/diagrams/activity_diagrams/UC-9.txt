@@ -1,0 +1,31 @@
+@startuml
+
+start
+:Open App;
+:Display Login/Register Options;
+:Select Register Option;
+if (Register with Email?) then (yes)
+  :Register with Email;
+  :Send Verification Email;
+  :Click Verification Link in Email;
+  :Verify Email;
+  if (Email Verified?) then (yes)
+    :Create New User Account;
+    :Show Registration Success Message;
+  else (no)
+    :Show Verification Error Message;
+  endif
+else (no)
+  if (Register with Google Account?) then (yes)
+    :Register with Google Account;
+    :Create New User Account;
+    :Show Registration Success Message;
+  else (no)
+    :Register with Facebook Account;
+    :Create New User Account;
+    :Show Registration Success Message;
+  endif
+endif
+stop
+
+@enduml
