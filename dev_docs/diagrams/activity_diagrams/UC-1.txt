@@ -1,0 +1,28 @@
+@startuml
+
+|User|
+start
+:Open User Profile;
+|System|
+:Retrieve User Profile;
+|User|
+:Set Allergens in Profile;
+:Enable Alert Notifications;
+|System|
+:Confirmation;
+|User|
+:Receive Alert;
+|System|
+:Submit Alert to OtherUser;
+:Retrieve User Profile;
+|OtherUser|
+:Check Allergens;
+|System|
+:Submit Alert with Allergens;
+:Filter Alert by Allergens;
+|System|
+:Send Alert;
+|User|
+stop
+
+@enduml
