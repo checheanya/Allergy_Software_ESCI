@@ -1,0 +1,25 @@
+@startuml
+
+start
+:Open App;
+:Authenticate User;
+if (User authenticated?) then (yes)
+  :Retrieve User Information;
+  if (User information retrieved successfully?) then (yes)
+    :Render Profile Page;
+    if (Profile page rendered successfully?) then (yes)
+      :Display User Information;
+      :Show Profile Page;
+    else (no)
+      :Display Error Message;
+    endif
+  else (no)
+    :Display Error Message;
+  endif
+else (no)
+  :Display Authentication Error Message;
+endif
+stop
+
+@enduml
+
