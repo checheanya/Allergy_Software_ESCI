@@ -1,0 +1,14 @@
+@startuml
+
+start
+:Open App;
+:Authenticate User;
+:Display Main Page;
+:Retrieve Nearby Stations;
+:Retrieve Weather Conditions;
+:Retrieve Allergens Status;
+:Display Weather Conditions;
+:Display Allergens Status;
+stop
+
+@enduml
