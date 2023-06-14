@@ -1,0 +1,29 @@
+@startuml
+start
+:User logs into the app;
+:User selects the Daily Quiz;
+if (Quiz available) then (yes)
+  :App presents the Quiz to the user;
+  :User starts the Quiz;
+  while (Quiz question available) is (yes)
+    :App displays the next Quiz question;
+    :User answers the question;
+    if (Last question) then (yes)
+      break;
+    else (no)
+      :App moves to the next question;
+    endif
+  endwhile
+  :App collects the Quiz answers;
+  :App stores the Quiz data in the Database;
+  if (Quiz suggests Alert) then (yes)
+    :App suggests user to submit Alert;
+  else (no)
+    :Activity ends;
+  endif
+else (no)
+  :No Quiz available;
+  :Activity ends;
+endif
+stop
+@enduml
