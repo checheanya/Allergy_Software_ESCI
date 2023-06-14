@@ -1,14 +1,17 @@
 @startuml
 
-actor User
-participant "Allergy App" as App
-database "Health Data" as Data
+actor Health Tracking App
+participant "Alert System" as System
+database "Patient Database" as Database
 
-User -> App: Open app
-App -> App: Show Home Screen
-User -> App: Select "Receive Health Metrics"
-App -> Data: Retrieve Health Metrics
-Data --> App: Health Metrics
-App --> User: Display Health Metrics
+Health Tracking App -> System: Update Daily Metrics
+System -> Database: Record Metrics to Database
+System -> Database: Update Patient's Dynamic Data
+System -> System: Check Metrics
+alt Metrics are High
+  System --> Health Tracking App: Send Notification with Quiz Suggestion
+else Metrics are not High
+  System -> System: No Action
+end
 
 @enduml
