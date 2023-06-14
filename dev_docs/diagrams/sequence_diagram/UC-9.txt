@@ -1,0 +1,21 @@
+@startuml
+
+actor User
+participant "Allergy Tracking App" as App
+control "User Interface" as UI
+participant "Authentication Service" as AuthService
+database "User Database" as UserDB
+
+User -> App: Open App
+App -> UI: Display Login/Register Options
+User -> UI: Select Register Option
+UI -> AuthService: Register with Email
+AuthService --> UI: Verification Email Sent
+User -> UI: Click Verification Link in Email
+UI -> AuthService: Verify Email
+AuthService --> UI: Email Verified
+UI -> UserDB: Create New User Account
+UserDB --> UI: User Account Created
+UI --> User: Show Registration Success Message
+
+@enduml
