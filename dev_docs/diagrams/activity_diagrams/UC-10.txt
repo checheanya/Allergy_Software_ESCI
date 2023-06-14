@@ -2,8 +2,8 @@
 start
 :User opens app;
 :App shows login screen;
-:User selects "Sign Up with Email";
-:App displays email sign-up form;
+:User selects "Log in with Email";
+:App displays email log in form;
 :User fills out the form;
 :App validates the name;
 if (Name is valid) then (yes)
