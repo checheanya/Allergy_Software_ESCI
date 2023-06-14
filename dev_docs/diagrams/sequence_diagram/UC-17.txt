@@ -1,0 +1,40 @@
+@startuml
+actor User
+participant App
+participant ProfileSection
+participant PaymentForm
+
+User->App: Open the app
+activate App
+
+App->App: Load user profile data
+App->ProfileSection: Open the Profile section
+activate ProfileSection
+
+ProfileSection->ProfileSection: Check if user is using Ad version
+alt Ad version is active
+  ProfileSection->ProfileSection: Display "Switch to non-Ad version" button
+  User->ProfileSection: Click on "Switch to non-Ad version" button
+  ProfileSection->App: Request payment form
+  activate App
+
+  App->PaymentForm: Open the payment form
+  activate PaymentForm
+
+  PaymentForm-->User: Display the payment form
+
+  User->PaymentForm: Fill in payment details
+  User->PaymentForm: Submit payment
+  PaymentForm->PaymentForm: Process payment
+  PaymentForm-->App: Payment confirmation
+
+  deactivate PaymentForm
+  App->ProfileSection: Update user's account status
+else Non-Ad version is active
+  ProfileSection->ProfileSection: Display user's account status as non-Ad version
+end
+
+deactivate ProfileSection
+App-->User: App interface with updated account status
+deactivate App
+@enduml
