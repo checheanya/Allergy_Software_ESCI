@@ -1,0 +1,20 @@
+@startuml
+
+actor User
+participant "Allergy Tracking App" as App
+control "User Interface" as UI
+database "Articles" as ArticleDB
+
+User -> App: Open App
+App -> UI: Display Articles Section
+UI -> ArticleDB: Retrieve Articles
+ArticleDB --> UI: Articles
+UI -> UI: Render Scroll-Down List
+User -> UI: Scroll Articles
+User -> UI: Select Article
+UI -> ArticleDB: Retrieve Article Content
+ArticleDB --> UI: Article Content
+UI -> UI: Render Article Page
+UI --> User: Display Article Page
+
+@enduml
