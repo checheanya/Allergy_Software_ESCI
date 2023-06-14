@@ -1,0 +1,22 @@
+@startuml
+
+actor User
+participant "Allergy Tracking App" as App
+participant "Health Tracking App/Device" as HealthApp
+
+User -> App: Open App
+App -> App: Authenticate User
+User -> App: Receive Health Data Metrics
+App -> HealthApp: Retrieve Health Data Metrics
+HealthApp -> App: Return Health Data Metrics
+App -> App: Analyze Metrics
+alt Abnormal Values
+    App -> App: Suggest to Fill in Quiz
+    User -> App: Fill in Quiz
+    App -> App: Submit Alert
+    App -> App: Notify User
+else Normal Values
+    App -> App: Continue Monitoring
+end
+
+@enduml
