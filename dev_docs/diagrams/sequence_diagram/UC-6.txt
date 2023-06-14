@@ -1,0 +1,28 @@
+@startuml
+
+actor User
+participant "Allergy Tracking App" as App
+control "User Interface" as UI
+database "Monitoring Stations" as Stations
+database "User Alerts" as UserAlerts
+
+User -> App: Open App
+App -> UI: Display Map Section
+UI -> UI: Render Physical Map
+App -> Stations: Retrieve Station Alerts
+Stations --> App: Station Alerts
+App -> UserAlerts: Retrieve User Alerts
+UserAlerts --> App: User Alerts
+App -> UI: Display Station Alerts on Map
+App -> UI: Display User Alerts on Map
+User -> UI: Zoom In/Out Map
+User -> UI: Move Along Map
+User -> UI: Click on Alert Symbol
+UI -> App: Retrieve Alert Details
+App -> Stations: Retrieve Station Details
+Stations --> App: Station Details
+App -> UserAlerts: Retrieve User Alert Details
+UserAlerts --> App: User Alert Details
+App -> UI: Display Alert Details
+
+@enduml
