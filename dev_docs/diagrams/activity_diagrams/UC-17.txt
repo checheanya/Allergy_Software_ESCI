@@ -1,0 +1,22 @@
+@startuml
+start
+:User opens the app;
+:App loads user's profile data;
+:App navigates to the Profile section;
+:User clicks on "Switch to non-Ad version" button;
+if (User is using the Ad version?) then (yes)
+  :App redirects to the Payment form;
+  :User fills in payment details;
+  :User submits payment;
+  :App processes the payment;
+  if (Payment is successful?) then (yes)
+    :App updates user's account to non-Ad version;
+    :App displays success message;
+  else (no)
+    :App displays error message;
+  endif
+else (no)
+  :App displays user's account status as non-Ad version;
+endif
+stop
+@enduml
