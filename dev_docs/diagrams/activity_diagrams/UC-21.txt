@@ -1,0 +1,18 @@
+@startuml
+
+|Health Tracking App|
+start
+:Update Daily Metrics;
+|System|
+:Record Metrics to Database;
+:Update Patient's Dynamic Data;
+:Check Metrics;
+if (Metrics are High?) then (yes)
+  :Send Notification with Quiz Suggestion;
+else (no)
+  :No Action;
+endif
+|Health Tracking App|
+stop
+
+@enduml
