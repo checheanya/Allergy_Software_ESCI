@@ -1,0 +1,26 @@
+@startuml
+
+|User|
+start
+:Open App;
+:Receive Health Data Metrics;
+|App|
+:Authenticate User;
+|HealthApp|
+:Retrieve Health Data Metrics;
+|App|
+:Analyze Metrics;
+alt Abnormal Values
+    :Suggest to Fill in Quiz;
+    |User|
+    :Fill in Quiz;
+    |App|
+    :Submit Alert;
+    :Notify User;
+else Normal Values
+    :Continue Monitoring;
+end
+|User|
+stop
+
+@enduml
