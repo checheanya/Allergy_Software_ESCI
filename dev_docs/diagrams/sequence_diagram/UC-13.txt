@@ -1,0 +1,30 @@
+@startuml
+participant User
+participant AllergyApp
+participant DailyQuiz
+participant Database
+
+User->AllergyApp: Log in
+activate AllergyApp
+
+AllergyApp->AllergyApp: Show Daily Quiz option
+User->AllergyApp: Select Daily Quiz
+AllergyApp->DailyQuiz: Start Daily Quiz
+activate DailyQuiz
+
+DailyQuiz->DailyQuiz: User fills in the Quiz
+DailyQuiz-->AllergyApp: Quiz data
+AllergyApp->Database: Store Quiz data
+activate Database
+Database-->AllergyApp: Quiz data stored
+deactivate Database
+
+alt Quiz suggests Alert
+  AllergyApp->AllergyApp: Suggest user to submit Alert
+else Quiz does not suggest Alert
+  AllergyApp-->User: Activity ends
+end
+
+deactivate AllergyApp
+deactivate DailyQuiz
+@enduml
