@@ -1,0 +1,17 @@
+@startuml
+
+start
+:Open App;
+:Display Articles Section;
+:Retrieve Articles;
+:Render Scroll-Down List;
+while (User scrolls articles?) is (yes)
+  :Scroll Articles;
+endwhile
+:Select Article;
+:Retrieve Article Content;
+:Render Article Page;
+:Display Article Page;
+stop
+
+@enduml
