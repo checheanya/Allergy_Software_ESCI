@@ -1,0 +1,16 @@
+@startuml
+
+actor User
+participant "Allergy Tracking App" as App
+control "User Interface" as UI
+database "User Profile" as Profile
+
+User -> App: Open App
+App -> App: Authenticate User
+App -> Profile: Retrieve User Information
+Profile --> App: User Information
+App -> UI: Render Profile Page
+UI -> UI: Display User Information
+UI --> User: Show Profile Page
+
+@enduml
