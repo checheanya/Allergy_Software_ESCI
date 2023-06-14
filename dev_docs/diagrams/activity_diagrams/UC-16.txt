@@ -1,0 +1,11 @@
+@startuml
+start
+:User installs the App;
+:App asks for location permission;
+:User grants location permission;
+:App asks for notification permission;
+:User grants notification permission;
+:App asks for health metrics permission;
+:User grants health metrics permission;
+stop
+@enduml
