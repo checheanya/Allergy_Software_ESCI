@@ -1,0 +1,17 @@
+@startuml
+
+start
+:Open App;
+:Display Login/Register Options;
+:Select Login with Facebook Option;
+:Authenticate with Facebook;
+:Handle Facebook Authentication Result;
+if (Authentication Success?) then (yes)
+  :Show Login Success Message;
+else (no)
+  :Show Login Error Message;
+endif
+stop
+
+@enduml
+
