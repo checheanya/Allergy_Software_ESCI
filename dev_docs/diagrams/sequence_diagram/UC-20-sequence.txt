@@ -1,0 +1,21 @@
+@startuml
+
+actor User
+participant "Alert System" as System
+database "Alert Database" as Database
+participant "User Profile" as Profile
+participant "User Location Service" as LocationService
+
+User -> System: Open Map
+System -> Database: Retrieve New Alerts for Today
+System -> Profile: Retrieve User Profile
+System -> LocationService: Retrieve User Location
+LocationService --> System: User Location
+System -> Database: Retrieve Allergen Alerts within 20km
+Database --> System: Allergen Alerts
+System -> System: Filter Alerts by User Profile
+System -> System: Check Distance from User Location
+System --> User: Send Notification (if applicable)
+User -> System: View Map
+
+@enduml
