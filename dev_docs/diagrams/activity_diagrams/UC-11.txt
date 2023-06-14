@@ -1,0 +1,18 @@
+@startuml
+
+start
+:Open App;
+:Display Login/Register Options;
+:Select Forgot Password Option;
+:Display Forgot Password Form;
+:Enter Email;
+:Verify Email;
+if (Email Valid?) then (yes)
+  :Send Password Reset Email;
+  :Show Email Sent Confirmation Message;
+else (no)
+  :Show Invalid Email Error Message;
+endif
+stop
+
+@enduml
