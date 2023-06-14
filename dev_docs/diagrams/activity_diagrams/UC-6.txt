@@ -1,0 +1,23 @@
+@startuml
+
+start
+:Open App;
+:Display Map Section;
+:Render Physical Map;
+:Retrieve Station Alerts;
+:Retrieve User Alerts;
+:Display Station Alerts on Map;
+:Display User Alerts on Map;
+while (User interacts with Map?) is (yes)
+  :Zoom In/Out Map;
+  :Move Along Map;
+  if (User clicks on Alert Symbol?) then (yes)
+    :Retrieve Alert Details;
+    :Retrieve Station Details;
+    :Retrieve User Alert Details;
+    :Display Alert Details;
+  endif
+endwhile
+stop
+
+@enduml
