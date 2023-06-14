@@ -1,0 +1,30 @@
+@startuml
+participant User
+participant AllergyApp
+participant WelcomeTest
+
+User->AllergyApp: Register
+User->AllergyApp: Log in
+activate AllergyApp
+
+AllergyApp->AllergyApp: Check if user is new
+alt User is new
+  AllergyApp->WelcomeTest: Fill in Welcome test
+  activate WelcomeTest
+
+  WelcomeTest->WelcomeTest: Check if allergens are known
+  alt Allergens are known
+    WelcomeTest->WelcomeTest: User selects known allergens
+  else Allergens are not known
+    WelcomeTest->WelcomeTest: User enters new allergens
+  end
+
+  WelcomeTest-->AllergyApp: User's allergens
+  AllergyApp->AllergyApp: Save user's allergens
+else User is not new
+  AllergyApp-->User: Proceed to the app
+end
+
+deactivate AllergyApp
+deactivate WelcomeTest
+@enduml
